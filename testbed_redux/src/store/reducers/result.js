@@ -1,4 +1,4 @@
-import { actionType } from '../constants';
+import { actionType } from '../../constants';
 
 const initState = {
   result: [],

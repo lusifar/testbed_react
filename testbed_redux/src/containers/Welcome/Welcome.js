@@ -6,7 +6,7 @@ import classes from './Welcome.module.css';
 import Count from '../../components/Count/Count';
 import Result from '../../components/Result/Result';
 
-import { actionType } from '../../constants';
+import { countAction } from '../../store/actions';
 
 class Welcome extends Component {
   render() {
@@ -49,16 +49,16 @@ const mapStateToProps = (state) => {
 const mapDistpatchToProps = (dispatch) => {
   return {
     incrementHandler: () => {
-      dispatch({ type: actionType.INCREMNET });
+      dispatch(countAction.incrementAsync());
     },
     decrementHandler: () => {
-      dispatch({ type: actionType.DECREMENT });
+      dispatch(countAction.decrementAsync());
     },
     addHandler: (val) => {
-      dispatch({ type: actionType.ADD, val });
+      dispatch(countAction.addAsync(val));
     },
     substractHandler: (val) => {
-      dispatch({ type: actionType.SUBSTRACT, val });
+      dispatch(countAction.substractAsync(val));
     },
   };
 };

@@ -1,17 +1,17 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 
 import { logger } from './middlewares';
 
-import counReducer from './count';
-import resultReducer from './result';
+import { countReducer, resultReducer } from './reducers';
 
 const rootReducer = combineReducers({
-  count: counReducer,
+  count: countReducer,
   result: resultReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, thunk)));
 
 export default store;

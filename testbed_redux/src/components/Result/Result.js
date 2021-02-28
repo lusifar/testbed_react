@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { actionType } from '../../constants';
+import { resultAction } from '../../store/actions';
 
 const Result = (props) => {
   let result = null;
@@ -35,7 +35,7 @@ const Result = (props) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     removeResultHandler: (index) => {
-      dispatch({ type: actionType.REMOVE_RESULT, index });
+      dispatch(resultAction.removeResultAsync(index));
     },
   };
 };

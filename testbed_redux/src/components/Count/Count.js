@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { actionType } from '../../constants';
+import { resultAction } from '../../store/actions';
 
 const Count = (props) => {
   return (
@@ -23,7 +23,7 @@ const Count = (props) => {
 const mapDistpatchToProps = (dispatch) => {
   return {
     addResultHandler: (val) => {
-      dispatch({ type: actionType.ADD_RESULT, val });
+      dispatch(resultAction.addResultAsync(val));
     },
   };
 };

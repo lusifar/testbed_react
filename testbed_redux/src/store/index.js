@@ -1,4 +1,6 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+
+import { logger } from './middlewares';
 
 import counReducer from './count';
 import resultReducer from './result';
@@ -8,6 +10,8 @@ const rootReducer = combineReducers({
   result: resultReducer,
 });
 
-const store = createStore(rootReducer);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
 
 export default store;

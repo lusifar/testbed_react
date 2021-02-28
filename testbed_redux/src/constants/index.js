@@ -1,0 +1,10 @@
+const actionType = {
+  INCREMNET: 'INCREMENT',
+  DECREMENT: 'DECREMENT',
+  ADD: 'ADD',
+  SUBSTRACT: 'SUBSTRACT',
+  ADD_RESULT: 'ADD_RESULT',
+  REMOVE_RESULT: 'REMOVE_RESULT',
+};
+
+export { actionType };

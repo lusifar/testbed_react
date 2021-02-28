@@ -1,2 +1,7 @@
+# testbed_redux
 /testbed_redux/node_modules
+/testbed_redux/dist
+
+# testbed_router
 /testbed_router/node_modules
+/testbed_router/dist

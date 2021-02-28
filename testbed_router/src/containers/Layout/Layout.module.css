@@ -1,0 +1,15 @@
+.Layout {
+  width: 100%;
+  height: 100%;
+}
+
+.NavLink {
+  color: gray;
+  display: inline-block;
+  margin: 20px;
+  text-decoration: none;
+}
+
+.NavLinkActive {
+  color: red;
+}

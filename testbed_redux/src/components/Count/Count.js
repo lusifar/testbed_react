@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { resultAction } from '../../store/actions';
 
-const Count = (props) => {
+export const Count = (props) => {
   return (
     <React.Fragment>
       <h1>Current Count: {props.number}</h1>

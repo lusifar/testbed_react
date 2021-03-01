@@ -8,9 +8,11 @@ const increment = () => {
 
 const incrementAsync = () => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(increment());
-    }, 1000);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    }).then(() => dispatch(increment()));
   };
 };
 
@@ -22,9 +24,11 @@ const decrement = () => {
 
 const decrementAsync = () => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(decrement());
-    }, 1000);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    }).then(() => dispatch(decrement()));
   };
 };
 
@@ -37,25 +41,29 @@ const add = (val) => {
 
 const addAsync = (val) => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(add(val));
-    }, 1000);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    }).then(() => dispatch(add(val)));
   };
 };
 
-const substract = (val) => {
+const subtract = (val) => {
   return {
-    type: actionType.SUBSTRACT,
+    type: actionType.SUBTRACT,
     val,
   };
 };
 
-const substractAsync = (val) => {
+const subtractAsync = (val) => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(substract(val));
-    }, 1000);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    }).then(() => dispatch(subtract(val)));
   };
 };
 
-export { increment, incrementAsync, decrement, decrementAsync, add, addAsync, substract, substractAsync };
+export { increment, incrementAsync, decrement, decrementAsync, add, addAsync, subtract, subtractAsync };

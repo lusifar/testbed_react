@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { resultAction } from '../../store/actions';
 
-const Result = (props) => {
+export const Result = (props) => {
   let result = null;
   if (props.items) {
     result = (

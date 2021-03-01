@@ -9,9 +9,11 @@ const addResult = (val) => {
 
 const addResultAsync = (val) => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(addResult(val));
-    }, 2000);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    }).then(() => dispatch(addResult(val)));
   };
 };
 
@@ -24,9 +26,11 @@ const removeResult = (index) => {
 
 const removeResultAsync = (index) => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(removeResult(index));
-    }, 2000);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    }).then(() => dispatch(removeResult(index)));
   };
 };
 

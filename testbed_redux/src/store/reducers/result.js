@@ -1,4 +1,5 @@
 import { actionType } from '../../constants';
+import { updateObject } from '../../utilities';
 
 const initState = {
   result: [],
@@ -7,19 +8,13 @@ const initState = {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case actionType.ADD_RESULT:
-      return {
-        ...state,
-        result: state.result.concat([action.val]),
-      };
+      return updateObject(state, { result: state.result.concat([action.val]) });
 
     case actionType.REMOVE_RESULT:
       const lastResult = [...state.result];
       lastResult.splice(action.index, 1);
 
-      return {
-        ...state,
-        result: lastResult,
-      };
+      return updateObject(state, { result: lastResult });
 
     default:
       return state;

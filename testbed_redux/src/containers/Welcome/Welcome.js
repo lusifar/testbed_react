@@ -8,7 +8,7 @@ import Result from '../../components/Result/Result';
 
 import { countAction } from '../../store/actions';
 
-class Welcome extends Component {
+export class Welcome extends Component {
   render() {
     return (
       <div className={classes.Welcome}>
@@ -25,7 +25,7 @@ class Welcome extends Component {
         </button>
         <button
           onClick={() => {
-            this.props.substractHandler(5);
+            this.props.subtractHandler(5);
           }}
         >
           Substract 5
@@ -57,8 +57,8 @@ const mapDistpatchToProps = (dispatch) => {
     addHandler: (val) => {
       dispatch(countAction.addAsync(val));
     },
-    substractHandler: (val) => {
-      dispatch(countAction.substractAsync(val));
+    subtractHandler: (val) => {
+      dispatch(countAction.subtractAsync(val));
     },
   };
 };

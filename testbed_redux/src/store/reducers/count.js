@@ -1,4 +1,5 @@
 import { actionType } from '../../constants';
+import { updateObject } from '../../utilities';
 
 const initState = {
   count: 0,
@@ -7,28 +8,16 @@ const initState = {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case actionType.INCREMNET:
-      return {
-        ...state,
-        count: state.count + 1,
-      };
+      return updateObject(state, { count: state.count + 1 });
 
     case actionType.DECREMENT:
-      return {
-        ...state,
-        count: state.count - 1,
-      };
+      return updateObject(state, { count: state.count - 1 });
 
     case actionType.ADD:
-      return {
-        ...state,
-        count: state.count + action.val,
-      };
+      return updateObject(state, { count: state.count + action.val });
 
-    case actionType.SUBSTRACT:
-      return {
-        ...state,
-        count: state.count - action.val,
-      };
+    case actionType.SUBTRACT:
+      return updateObject(state, { count: state.count - action.val });
 
     default:
       return state;

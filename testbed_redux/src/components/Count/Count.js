@@ -1,16 +1,23 @@
-import React from 'react';
+import React from "react";
 
-import { connect } from 'react-redux';
+import { connect, useDispatch } from "react-redux";
 
-import { resultAction } from '../../store/actions';
+import { resultAction } from "../../store/actions";
 
 export const Count = (props) => {
+  // react-redux
+  const dispatch = useDispatch();
+
+  const addResultHandler = (val) => {
+    dispatch(resultAction.addResultAsync(val));
+  };
+
   return (
     <React.Fragment>
       <h1>Current Count: {props.number}</h1>
       <button
         onClick={() => {
-          props.addResultHandler(props.number);
+          addResultHandler(props.number);
         }}
       >
         Add result
@@ -20,12 +27,4 @@ export const Count = (props) => {
   );
 };
 
-const mapDistpatchToProps = (dispatch) => {
-  return {
-    addResultHandler: (val) => {
-      dispatch(resultAction.addResultAsync(val));
-    },
-  };
-};
-
-export default connect(null, mapDistpatchToProps)(Count);
+export default React.memo(Count);

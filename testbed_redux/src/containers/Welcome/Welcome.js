@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import classes from './Welcome.module.css';
+import classes from "./Welcome.module.css";
 
-import Count from '../../components/Count/Count';
-import Result from '../../components/Result/Result';
+import Count from "../../components/Count/Count";
+import Result from "../../components/Result/Result";
 
-import { countAction } from '../../store/actions';
+import { countAction } from "../../store/actions";
 
 export class Welcome extends Component {
   render() {
@@ -62,4 +62,7 @@ const mapDistpatchToProps = (dispatch) => {
     },
   };
 };
-export default connect(mapStateToProps, mapDistpatchToProps)(Welcome);
+export default connect(
+  mapStateToProps,
+  mapDistpatchToProps
+)(React.memo(Welcome));

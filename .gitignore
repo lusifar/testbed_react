@@ -1,14 +1,14 @@
 # testbed_redux
-./testbed_redux/node_modules
-./testbed_redux/dist
-./testbed_redux/coverage
+/testbed_redux/node_modules
+/testbed_redux/dist
+/testbed_redux/coverage
 
 # testbed_router
-./testbed_router/node_modules
-./testbed_router/dist
-./testbed_router/coverage
+/testbed_router/node_modules
+/testbed_router/dist
+/testbed_router/coverage
 
 # testbed_typescript
-./testbed_typescript/node_modules
-./testbed_typescript/dist
-./testbed_typescript/coverage
+/testbed_typescript/node_modules
+/testbed_typescript/dist
+/testbed_typescript/coverage

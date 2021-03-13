@@ -16,7 +16,7 @@ import {
 
 import { itemAction } from "../../store/actions";
 
-import { TItem, TAction, TState } from "../../store/type";
+import { TItem, TAction, TActionAsync, TState } from "../../store/type";
 
 interface TProps {}
 
@@ -28,6 +28,7 @@ const List: React.FC<TProps> = (props) => {
   // react-redux
   const lists = useSelector<TStateItem>((state) => state.item.lists) as TItem[];
   const dispatch = useDispatch<React.Dispatch<TAction>>();
+  const dispatchAsync = useDispatch<React.Dispatch<TActionAsync>>();
 
   // useState
   const [btnDisabledState, setBtnDisabledState] = useState<boolean>(true);
@@ -65,7 +66,7 @@ const List: React.FC<TProps> = (props) => {
       const item = lists[index];
 
       dispatch(itemAction.removeList(item));
-      dispatch(itemAction.addFavorite(item));
+      dispatchAsync(itemAction.addFavoriteAsync(item));
     }
   };
 

@@ -1,3 +1,4 @@
+import { Dispatch } from "redux";
 import { actionType } from "../../configs";
 import { TItem, TAction } from "../type";
 
@@ -22,6 +23,18 @@ const addFavorite = (item: TItem): TAction => {
   };
 };
 
+const addFavoriteAsync = (item: TItem) => {
+  return (dispatch: Dispatch<TAction>) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(null);
+      }, 1000);
+    }).then(() => {
+      dispatch(addFavorite(item));
+    });
+  };
+};
+
 const removeFavorite = (item: TItem): TAction => {
   return {
     type: actionType.REMOVE_FAVORITE,
@@ -29,4 +42,23 @@ const removeFavorite = (item: TItem): TAction => {
   };
 };
 
-export { addList, removeList, addFavorite, removeFavorite };
+const removeFavoriteAsync = (item: TItem) => {
+  return (dispatch: Dispatch<TAction>) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(null);
+      }, 1000);
+    }).then(() => {
+      dispatch(removeFavorite(item));
+    });
+  };
+};
+
+export {
+  addList,
+  removeList,
+  addFavorite,
+  removeFavorite,
+  addFavoriteAsync,
+  removeFavoriteAsync,
+};

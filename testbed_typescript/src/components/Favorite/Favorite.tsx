@@ -7,7 +7,7 @@ import { Container, Row, Col, Alert } from "react-bootstrap";
 
 import { itemAction } from "../../store/actions";
 
-import { TItem, TAction, TState } from "../../store/type";
+import { TItem, TAction, TActionAsync, TState } from "../../store/type";
 
 interface TProps {}
 
@@ -21,6 +21,7 @@ const Favorite: React.FC<TProps> = (props) => {
     (state) => state.item.favorites,
   ) as TItem[];
   const dispatch = useDispatch<React.Dispatch<TAction>>();
+  const dispatchAsync = useDispatch<React.Dispatch<TActionAsync>>();
 
   // handler
   const addListHandler = (id: string) => {
@@ -28,7 +29,7 @@ const Favorite: React.FC<TProps> = (props) => {
     if (index !== -1) {
       const item = favorites[index];
 
-      dispatch(itemAction.removeFavorite(item));
+      dispatchAsync(itemAction.removeFavoriteAsync(item));
       dispatch(itemAction.addList(item));
     }
   };

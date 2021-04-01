@@ -5,19 +5,19 @@ import classes from "./BurgerIngredient.module.scss";
 import { BurgerIngredientType } from "../../../configs";
 
 interface TProps {
-  type: BurgerIngredientType;
+  type: string;
 }
 
 const BurgerIngredient: React.FC<TProps> = (props) => {
-  const ingredient = (type: BurgerIngredientType) => {
+  const ingredient = (type: string) => {
     switch (type) {
       case BurgerIngredientType.BreadBottom:
         return <div className={classes.BreadBottom}></div>;
       case BurgerIngredientType.BreadTop:
         return (
           <div className={classes.BreadTop}>
-            <div className={classes.Seed1}></div>
-            <div className={classes.Seed2}></div>
+            <div className={classes.Seeds1}></div>
+            <div className={classes.Seeds2}></div>
           </div>
         );
       case BurgerIngredientType.Meat:

@@ -9,6 +9,8 @@ interface TProps {
   ingredientRemoved: (type: string) => void;
   totalPrice: string;
   disabledInfo: { [key: string]: boolean };
+  purchasable: boolean;
+  ordered: () => void;
 }
 
 interface TControl {
@@ -38,6 +40,13 @@ const BuildControls: React.FC<TProps> = (props) => {
           />
         );
       })}
+      <button
+        className={classes.OrderButton}
+        disabled={!props.purchasable}
+        onClick={props.ordered}
+      >
+        ORDER BURGER
+      </button>
     </div>
   );
 };

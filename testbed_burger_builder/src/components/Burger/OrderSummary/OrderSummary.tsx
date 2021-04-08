@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import classes from "./OrderSummary.module.scss";
 
@@ -12,6 +12,11 @@ interface TProps {
 }
 
 const OrderSummary: React.FC<TProps> = (props) => {
+  useEffect(() => {
+    console.log("[OrderSummary] useEffect");
+    console.log(`total price: ${props.price}`);
+  }, [props.price]);
+
   const ingredientSummary = Object.entries(props.ingredients).map(
     ([key, value]) => {
       return (

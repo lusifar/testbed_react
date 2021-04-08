@@ -10,7 +10,7 @@ interface TProps {
 }
 
 const Modal: React.FC<TProps> = (props) => {
-  return (
+  return props.show === true ? (
     <React.Fragment>
       <Backdrop show={props.show} clicked={props.modalClosed} />
       <div
@@ -23,7 +23,7 @@ const Modal: React.FC<TProps> = (props) => {
         {props.children}
       </div>
     </React.Fragment>
-  );
+  ) : null;
 };
 
 export default Modal;

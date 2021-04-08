@@ -7,7 +7,9 @@ import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Modal from "../../components/UI/Modal/Modal";
 
-import { BurgerIngredientPrice } from "../../configs";
+import { APIEndpoints, BurgerIngredientPrice } from "../../configs";
+
+import axios from "../../services/axios/orders";
 
 interface TProps {}
 
@@ -85,8 +87,30 @@ class BurgerBuilder extends React.Component<TProps> {
     });
   };
 
-  purchaseContinueHandler = () => {
-    alert("Continue!!");
+  purchaseContinueHandler = async () => {
+    try {
+      const order = {
+        ingredients: this.state.ingredients,
+        price: this.state.totalPrice,
+        customer: {
+          name: "Ricky Chao",
+          address: {
+            street: "No 123, TestOne",
+            zipCode: 10670,
+            country: "Taiwan",
+          },
+          email: "test123@test.com",
+        },
+        deliveryMethod: "fastest",
+      };
+
+      console.log(axios);
+
+      const res = await axios.post(APIEndpoints.Orders, order);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {

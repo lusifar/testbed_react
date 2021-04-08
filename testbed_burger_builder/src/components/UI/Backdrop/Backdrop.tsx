@@ -4,7 +4,7 @@ import classes from "./Backdrop.module.scss";
 
 interface TProps {
   show: boolean;
-  clicked: () => void;
+  clicked?: () => void;
 }
 
 const Backdrop: React.FC<TProps> = (props) => {

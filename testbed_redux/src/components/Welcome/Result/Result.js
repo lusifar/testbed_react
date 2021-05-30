@@ -1,12 +1,13 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
-import { resultAction } from "../../store/actions";
+import { resultAction } from '../../store/actions';
 
 export const Result = (props) => {
   // react-redux
   const dispatch = useDispatch();
 
+  // component handler
   const removeResultHandler = (index) => {
     dispatch(resultAction.removeResultAsync(index));
   };

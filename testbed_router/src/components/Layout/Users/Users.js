@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 
-import { withRouter } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 
 const Users = (props) => {
+  // react-router
+  const match = useRouteMatch();
+
+  // react
   useEffect(() => {
-    console.log(props);
+    console.log(match);
   });
 
   return (
@@ -15,4 +19,4 @@ const Users = (props) => {
   );
 };
 
-export default withRouter(Users);
+export default React.memo(Users);

@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
-import { resultAction } from "../../store/actions";
+import { resultAction } from '../../store/actions';
 
 export const Count = (props) => {
   // react-redux
   const dispatch = useDispatch();
 
+  // component handler
   const addResultHandler = (val) => {
     dispatch(resultAction.addResultAsync(val));
   };

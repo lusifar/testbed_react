@@ -2,11 +2,11 @@ import { Provider } from 'react-redux';
 
 import classes from './App.module.css';
 
-import Welcome from './Welcome/Welcome';
+import Welcome from '../components/Welcome/Welcome';
 
 import store from '../store';
 
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <div className={classes.App}>
@@ -14,6 +14,6 @@ function App() {
       </div>
     </Provider>
   );
-}
+};
 
 export default App;

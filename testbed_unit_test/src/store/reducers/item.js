@@ -1,7 +1,7 @@
 import { actionType } from '../../constants';
 
 const initState = {
-  items: [],
+  items: ['Cat', 'Whale', 'Lion', 'Elephant', 'Rhino'],
 };
 
 const reducer = (state = initState, action) => {

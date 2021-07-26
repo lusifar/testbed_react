@@ -1,20 +1,40 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
+const renderWithRouter = (ui, { route = '/' } = {}) => {
+  window.history.pushState({}, 'Test Page', route);
+
+  return render(ui, { wrapper: BrowserRouter });
+};
+
 describe('App component', () => {
-  it('renders h1 element', async () => {
-    render(<App />);
+  it('full app rendering/navigating', async () => {
+    // show the home result
+    const router = '/';
 
-    // to see the html output of the component
-    screen.debug();
+    renderWithRouter(<App />, { router });
 
-    // if failed, throw error
     expect(screen.getByText('Hello World')).toBeInTheDocument();
 
-    // if failed, return null
-    expect(screen.queryByText('Hello')).toBe(null);
+    // click the list link
+    const leftClick = { button: 0 };
+    userEvent.click(screen.getByText(/list/i), leftClick);
 
-    // if failed, return Promise.reject
-    expect(await screen.findByText('Hello World')).toBeInTheDocument();
+    // show the list result
+    const listElement = screen.getByRole('list');
+    const listItems = screen.getAllByRole('listitem');
+
+    expect(listElement).toBeInTheDocument();
+    expect(listElement).toHaveClass('animals');
+    expect(listItems.length).toEqual(5);
+  });
+
+  it('loading on a bad page', async () => {
+    const route = '/fake';
+    renderWithRouter(<App />, { route });
+
+    expect(screen.getByText('No Match')).toBeInTheDocument();
   });
 });

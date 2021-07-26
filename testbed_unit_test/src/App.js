@@ -12,9 +12,15 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Link to="/">Home</Link>
-      <Link to="/users">Users</Link>
-      <Link to="/list">List</Link>
+      <Link className="link" to="/">
+        Home
+      </Link>
+      <Link className="link" to="/users">
+        Users
+      </Link>
+      <Link className="link" to="/list">
+        List
+      </Link>
 
       <Switch>
         <Route exact path="/">
